@@ -1,9 +1,11 @@
 # Compte rendu Projet analyse de donnée MNIST
 ## Etudiant : *Mounib Benimam*
 
-Dans ce projet, nous allons contruire un model performant pour predire la classe d'un chiffre manuscrit pour en arriver, nous devons experimenter avec plusieurs models (et plusieurs parametres et methode
+Dans ce projet, nous allons contruire un model performant pour predire la classe d'un chiffre manuscrit.
 
-d'entrainement, et processing) on utilisera notamment : PCA, KNN, Decision tree, Random forest, Logistic regression , mlp
+Pour en arriver, nous devons experimenter avec plusieurs models (et plusieurs parametres et methodes
+d'entrainement, et de processing).
+On utilisera notamment : PCA, KNN, Decision tree, Random forest, Logistic regression , mlp
 
 # Chargement des librairies
 
@@ -1829,6 +1831,14 @@ liste_models.append((f"Logistic lr=0.213", best.accuracy(x_test, y_test)))
 ## Model 7 
 ### Multilayer Neural net (2 hidden layers)
 
+Ce model est un reseaux de neurone à 2 couches (activation ReLu pour casser la linéarité), et une derniere couche output Sigmoid (pour avoir des probabilité 0 et 1).
+
+Plusieurs Methodes d'entrainement ont été utilisé: 
+
+* Dropout(pour limiter l'overfitting, et permettre au reseaux de ne pas dependre sur quelque neurone seulments)
+* RMSPROP, algorithme d'optimisation qui utilise les notions de minibatch(pour lisser le pas du gradient, en effectuant une moyenne sur la batch), et le momentum qui permet d'accélérer le training (il evite de faire des mouvement de gradient trés brusque en effectuant la moyenne sur les 10 derniers pas de gradient)
+* Initialisation de Xavier (intialiser les poids à partir d'une distribution gaussienne et ayant comme variance sqrt(2/(in+out))), elle permet d'accelerer le training, en s'assurant que l'apprentissage soit equilibré sur les neurones et que les valeurs ne sont ni trop grande ni trop petite.
+
 
 ```python
 x_train, y_train = getcopy_dataframe("train", normaliser=True, proba=True)
@@ -2003,7 +2013,7 @@ liste_models.append((f"Mlp lr=0.01", mlp.accuracy(x_test, y_test)))
 # Methode d'ensemble
 entrainer plusieurs models sur des echantillions different du train set, et predire en votant les models
 
-# model 6 
+# model 8 
 
 ### Bagging Arbre de decisions (toujours en binarisant les images)
 
@@ -2533,6 +2543,8 @@ for i, v in enumerate(ylabel_scaled):
 
 # Multiclass (optionel)
 
+## Chargement des données
+
 
 ```python
 # lecture des fichiers csv
@@ -2687,8 +2699,10 @@ plot_images(title="Sample dataset")
 ```
 
 
-![png](output_91_0.png)
+![png](output_92_0.png)
 
+
+## Visualisation
 
 
 ```python
@@ -2707,7 +2721,7 @@ plt.show()
 
 
 
-![png](output_92_1.png)
+![png](output_94_1.png)
 
 
 
@@ -2733,10 +2747,10 @@ plt.show()
 
 
 
-![png](output_93_1.png)
+![png](output_95_1.png)
 
 
-# Model 1 (Decision tree)
+# Model 1 (Decision tree, toujours en utilisant des images binairisé)
 
 
 ```python
@@ -2770,7 +2784,7 @@ graphe_arbre
 
 
 
-![svg](output_95_1.svg)
+![svg](output_97_1.svg)
 
 
 
@@ -2846,6 +2860,7 @@ liste_models.append((f"Mlp lr=0.01", mlp.accuracy(x_test, y_test)))
 
 
 ```python
+#x_test, _ = getcopy_dataframe("test", normaliser=True, proba=True)
 y_predicted = mlp.predict(x_test)
 empty = np.zeros((28, 28))
 y_real = np.argmax(y_test, axis=1)
@@ -2886,8 +2901,11 @@ for i in range(10):
   
 ```
 
+    ['label_0', 'label_1', 'label_2', 'label_3', 'label_4', 'label_5', 'label_6', 'label_7', 'label_8', 'label_9']
 
-![png](output_100_0.png)
+
+
+![png](output_102_1.png)
 
 
 
@@ -2904,7 +2922,7 @@ plt.show()
 ```
 
 
-![png](output_101_0.png)
+![png](output_103_0.png)
 
 
 # Conclusion
@@ -2941,7 +2959,7 @@ for i, v in enumerate(ylabel_scaled):
 ```
 
 
-![png](output_103_0.png)
+![png](output_105_0.png)
 
 
 
