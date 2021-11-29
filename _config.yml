@@ -18,9 +18,9 @@ linkedin_username: "mounib-benimam"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-#theme: "Square Zero"
+theme: "Square Zero"
 
-remote_theme:  StartBootstrap/startbootstrap-clean-blog-jekyll 
+#remote_theme:  StartBootstrap/startbootstrap-clean-blog-jekyll 
 
 rss: rss
 permalink: /:year/:month/:day/:title.html
@@ -30,7 +30,7 @@ kramdown:
     
 plugins:
   - jekyll-feed
-  - jekyll-remote-theme
+#  - jekyll-remote-theme
   - jekyll-sitemap
   - jekyll-postfiles
 
