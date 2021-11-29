@@ -13,11 +13,11 @@ linkedin_username: "mounib-benimam"
 #google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 
 # Build settings
-markdown:           kramdown
+markdown: kramdown
 highlighter: rouge
-    input: GFM
-paginate:           5
-paginate_path:      "/posts/page:num/"
+  input: GFM
+paginate: 5
+paginate_path: "/posts/page:num/"
 plugins:
   - jekyll-feed
   - jekyll-paginate
