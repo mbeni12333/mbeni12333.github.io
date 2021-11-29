@@ -14,6 +14,8 @@ linkedin_username: "mounib-benimam"
 
 # Build settings
 markdown:           kramdown
+highlighter: rouge
+    input: GFM
 paginate:           5
 paginate_path:      "/posts/page:num/"
 plugins:
