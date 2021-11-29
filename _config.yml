@@ -18,7 +18,7 @@ linkedin_username: "mounib-benimam"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-theme: "minima"
+theme: "Square Zero"
 
 rss: rss
 
@@ -29,6 +29,7 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-postfiles
 
 titles_from_headings:
   strip_title: true
