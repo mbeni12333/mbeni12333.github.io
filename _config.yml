@@ -18,7 +18,7 @@ linkedin_username: "mounib-benimam"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-theme: "Square Zero"
+theme: minima
 
 #remote_theme:  StartBootstrap/startbootstrap-clean-blog-jekyll 
 
@@ -32,7 +32,7 @@ plugins:
   - jekyll-feed
 #  - jekyll-remote-theme
   - jekyll-sitemap
-#  - jekyll-postfiles
+  - jekyll-postfiles
 
 titles_from_headings:
   strip_title: true
